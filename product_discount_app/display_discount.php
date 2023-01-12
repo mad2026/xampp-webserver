@@ -13,5 +13,5 @@
     $discount_percent_formatted = number_format($discount_percent, 1) . "%";
     
     // escape the unformatted input
-    $product_description_escapeds = htmlspecialchars($product_description);
+    $product_description_escaped = htmlspecialchars($product_description);
 ?>
