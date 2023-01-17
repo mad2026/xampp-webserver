@@ -20,6 +20,8 @@
     echo '
     <!DOCTYPE html>
         <html>
+            <button onclick="history.back()">Back</button>
+
             <head>
                 <title>Product Discount Calculator</title>
                 <link rel="stylesheet" type="text/css" href="main.css">
