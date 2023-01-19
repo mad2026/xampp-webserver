@@ -1,9 +1,36 @@
 <?php
     // get the data from the form
-    $product_description = $_POST['product_description'];
-    $list_price = $_POST['list_price'];
-    $discount_percent = $_POST['discount_percent'];
-    
+    if (isset($_POST['product_description'])){
+        $product_description = cleanIO($_POST['product_description']);
+        //DEBUG var_dump($product_description);
+        //DEBUG exit();
+    }//if
+    if (isset($_POST['list_price'])){
+        $list_price = cleanIO($_POST['list_price']);
+    }//if
+    if (isset($_POST['discount_percent'])){
+        $discount_percent = cleanIO($_POST['discount_percent']);
+    }//if
+    if (!filter_var($list_price, FILTER_VALIDATE_FLOAT)) {
+        var_dump($list_price);
+        echo '<br>';
+        exit ("Need number for list_price");
+    }//if
+    if (!filter_var($discount_percent, FILTER_VALIDATE_FLOAT)) {
+        var_dump($discount_percent);
+        echo '<br>';
+        exit ("Need number for discount_percent");
+    }//if
+
+    //Application specific checks below
+    if ($product_description == "")
+        exit("Supply product description");
+        
+    if ($product_description != "Guitars" && $product_description != "Pianos" && $product_description != "Other") 
+        exit("Incorrect Product Description");
+    if ($discount_percent <0 || $discount_percent >100)
+        exit("Discount percent must be positive and less than 100");
+
     // calculate the discount
     $discount = $list_price * $discount_percent * .01;
     $discount_price = $list_price - $discount;
@@ -15,7 +42,15 @@
     $discount_price_formatted = "$" . number_format($discount_price, 2);
     
     // escape the unformatted input
-    $product_description_escaped = htmlspecialchars($product_description);
+    $product_description_escaped = cleanIO($product_description);
+
+    function cleanIO($data){
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }//cleanIO
+
     
     echo '
     <!DOCTYPE html>
