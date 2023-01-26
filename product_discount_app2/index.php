@@ -21,7 +21,7 @@
                 <input type="number" name="list_price" id="list_price"  min="0" required><br>
 
                 <label>Discount Percent (0-100):</label>
-                <input type="range" name="discount_percent" id="discount_percent" min="0" max="100" required>
+                <input type="number" name="discount_percent" id="discount_percent" min="0" max="100" required>
                 <span>%</span><br>
             </div>
             <div id="buttons">
