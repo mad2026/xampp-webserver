@@ -5,9 +5,11 @@
     <script src="productDiscount.js"></script>
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
-
 <body>
     <main>
+<?php
+        echo date('Y');
+        ?>
         <h1>Product Discount Calculator</h1>
         <form action="display_discount.php" onsubmit="return validateProductData();" method="post">
 
