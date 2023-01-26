@@ -64,6 +64,10 @@
     
             <body>
                 <main>
+                    <header>
+                        <h2>Discount Information</h2>
+                        <img src="../Custom_Images/Logo_de_Enron.svg.png" height="40px" width="40px" />
+                    </header>
                     <h1>Product Discount Calculator</h1>
                 
                     <label>Product Description:</label>
@@ -80,7 +84,10 @@
                 
                     <label>Discount Price:</label>
                     <span>'.$discount_price_formatted.'</span><br>
-
+                    <footer>
+                        &copy; Mason Davenport, <?php echo date("Y");?>. Please contact <a href="mailto:mad2026@utulsa.edu">Admin</a> for more information.
+                        <button onclick="history.back()">Go Back</button>   
+                    </footer>
                 </main>
             </body>
         </html>

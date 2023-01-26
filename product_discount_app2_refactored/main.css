@@ -3,6 +3,9 @@ body {
     margin: 1em;
     padding: 0;
 }
+header {
+    width: 450px;
+}
 main {
     width: 450px;
     margin: 0 auto;
@@ -10,8 +13,14 @@ main {
     background: white;
     border: 2px solid navy;
 }
+footer {
+    width: 550px;
+}
 h1 {
     color: navy;
+}
+h2 {
+    color: black;
 }
 label {
     width: 10em;
