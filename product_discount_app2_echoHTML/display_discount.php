@@ -1,4 +1,6 @@
 <?php
+require_once('utilities.php');
+require_once('echoHTMLtext.php');
     // get the data from the form
     if (isset($_POST['product_description'])){
         $product_description = cleanIO($_POST['product_description']);
@@ -32,7 +34,7 @@
         exit("Discount percent must be positive and less than 100");
 
     // calculate the discount
-    $discount = $list_price * $discount_percent * .01;
+    $discount = calculateProductDiscount($list_price, $discount_percent);
     $discount_price = $list_price - $discount;
     
     // apply currency formatting to the dollar and percent amounts
@@ -44,52 +46,28 @@
     // escape the unformatted input
     $product_description_escaped = cleanIO($product_description);
 
-    function cleanIO($data){
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }//cleanIO
 
-    
+echoHead($myJSFile, $myCSSFile);
+echoHeader("Discount Information");
     echo '
-    <!DOCTYPE html>
-        <html>
-            <button onclick="history.back()">Back</button>
-
-            <head>
-                <title>Product Discount Calculator</title>
-                <link rel="stylesheet" type="text/css" href="main.css">
-            </head>
     
-            <body>
-                <main>
-                    <header>
-                        <h2>Discount Information</h2>
-                        <img src="../Custom_Images/Logo_de_Enron.svg.png" height="40px" width="40px" />
-                    </header>
-                    <h1>Product Discount Calculator</h1>
-                
-                    <label>Product Description:</label>
-                    <span>'.$product_description_escaped.'</span><br>
-                
-                    <label>List Price:</label>
-                    <span>'.$list_price_formatted.'</span><br>
-                
-                    <label>Standard Discount:</label>
-                    <span>'.$discount_percent_formatted.'</span><br>
-                    
-                    <label>Discount Amount:</label>
-                    <span>'.$discount_formatted.'</span><br>
-                
-                    <label>Discount Price:</label>
-                    <span>'.$discount_price_formatted.'</span><br>
-                    <footer>
-                        &copy; Mason Davenport, <?php echo date("Y");?>. Please contact <a href="mailto:mad2026@utulsa.edu">Admin</a> for more information.
-                        <button onclick="history.back()">Go Back</button>   
-                    </footer>
-                </main>
-            </body>
-        </html>
+        <main>
+            <label>Product Description:</label>
+            <span>'.$product_description_escaped.'</span><br>
+        
+            <label>List Price:</label>
+            <span>'.$list_price_formatted.'</span><br>
+        
+            <label>Standard Discount:</label>
+            <span>'.$discount_percent_formatted.'</span><br>
+            
+            <label>Discount Amount:</label>
+            <span>'.$discount_formatted.'</span><br>
+        
+            <label>Discount Price:</label>
+            <span>'.$discount_price_formatted.'</span><br>   
+        </main>
+            
     ';
+echoFooter();
 ?>

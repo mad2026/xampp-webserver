@@ -1,5 +1,10 @@
 <?php
 require_once('echoHTMLtext.php');
+echoHead('productDiscount.js', 'main.css');
+echoHeader("Enter Sales Information");
+echo'
+
+'
 ?>
 <!DOCTYPE html>
 <html>
