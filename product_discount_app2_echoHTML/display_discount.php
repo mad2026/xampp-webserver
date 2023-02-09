@@ -20,7 +20,7 @@ $myCSSFile = 'main.css';
     if (!filter_var($list_price, FILTER_VALIDATE_FLOAT)) {
         var_dump($list_price);
         echo '<br>';
-        echoError("List Price must be a number", $myJSFile, $myCSSFile);
+        echoError("List Price must be a positive number", $myJSFile, $myCSSFile);
         exit ();
     }//if
     if (!filter_var($discount_percent, FILTER_VALIDATE_FLOAT)) {
@@ -39,12 +39,12 @@ $myCSSFile = 'main.css';
         exit();
 
     }
-    if ($list_price < 0){
+    if ($list_price <= 0){
         echoError("List Price must be a positive number", $myJSFile, $myCSSFile);
         exit();
     }
 
-    if ($discount_percent <0 || $discount_percent >100) {
+    if ($discount_percent <=0 || $discount_percent >100) {
         echoError("Discount percent must be positive and less than 100", $myJSFile, $myCSSFile);
         exit();
     }
