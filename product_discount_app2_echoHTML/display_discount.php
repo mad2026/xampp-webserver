@@ -1,6 +1,7 @@
 <?php
 require_once('utilities.php');
 require_once('echoHTMLtext.php');
+require_once('errorDisplay.php');
 $myJSFile = 'productDiscount.js';
 $myCSSFile = 'main.css';
 //debug print_r($_POST); exit();
@@ -32,12 +33,21 @@ $myCSSFile = 'main.css';
     if ($product_description == "") {
         echoError("Supply Product Description", $myJSFile, $myCSSFile);
         exit();
-    }//if
-        
-    if ($product_description != "Guitars" && $product_description != "Pianos" && $product_description != "Other") 
-        exit("Incorrect Product Description");
-    if ($discount_percent <0 || $discount_percent >100)
-        exit("Discount percent must be positive and less than 100");
+    }//if 
+    if ($product_description != "Guitars" && $product_description != "Pianos" && $product_description != "Other") {
+        echoError("Product Description must be either 'Guitars', 'Pianos', or 'Other'", $myJSFile, $myCSSFile);
+        exit();
+
+    }
+    if ($list_price < 0){
+        echoError("List Price must be a positive number", $myJSFile, $myCSSFile);
+        exit();
+    }
+
+    if ($discount_percent <0 || $discount_percent >100) {
+        echoError("Discount percent must be positive and less than 100", $myJSFile, $myCSSFile);
+        exit();
+    }
 
     // calculate the discount
     $discount = calculateProductDiscount($list_price, $discount_percent);

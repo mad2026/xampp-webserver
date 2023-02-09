@@ -10,7 +10,8 @@ header {
     width: 450px;
 }
 footer {
-    width: 550px;
+    width: 450px;
+    font-size: small;
 }
 h1 {
     color: navy;
