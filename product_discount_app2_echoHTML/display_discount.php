@@ -1,6 +1,9 @@
 <?php
 require_once('utilities.php');
 require_once('echoHTMLtext.php');
+$myJSFile = 'productDiscount.js';
+$myCSSFile = 'main.css';
+//debug print_r($_POST); exit();
     // get the data from the form
     if (isset($_POST['product_description'])){
         $product_description = cleanIO($_POST['product_description']);
@@ -16,7 +19,8 @@ require_once('echoHTMLtext.php');
     if (!filter_var($list_price, FILTER_VALIDATE_FLOAT)) {
         var_dump($list_price);
         echo '<br>';
-        exit ("Need number for list_price");
+        echoError("List Price must be a number", $myJSFile, $myCSSFile);
+        exit ();
     }//if
     if (!filter_var($discount_percent, FILTER_VALIDATE_FLOAT)) {
         var_dump($discount_percent);
@@ -25,8 +29,10 @@ require_once('echoHTMLtext.php');
     }//if
 
     //Application specific checks below
-    if ($product_description == "")
-        exit("Supply product description");
+    if ($product_description == "") {
+        echoError("Supply Product Description", $myJSFile, $myCSSFile);
+        exit();
+    }//if
         
     if ($product_description != "Guitars" && $product_description != "Pianos" && $product_description != "Other") 
         exit("Incorrect Product Description");
