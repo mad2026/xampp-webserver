@@ -9,7 +9,36 @@
         <h1>Monthly Payment Calculator</h1>
         <form action="monthlyPayment.php" onsubmit="return validateProductData();" method="post">
 
-            <div id="data">
+            <fieldset>
+                <legend>Registration Information</legend>
+                <label>E-Mail:</label>
+                <input type="email" name="email" id="email" required><br>
+
+                <label>Password:</label>
+                <input type="password" name="password" id="password" required><br>
+
+                <label>Verify Password:</label>
+                <input type="password" name="verify_password" id="verify_password" required><br>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Member Information</legend>
+                <label>First Name:</label>
+                <input type="text" name="first_name" id="first_name" required><br>
+
+                <label>State:</label>
+                <input type="text" name="state_code" id="state_code" required><br>
+
+                <label>ZIP Code:</label>
+                <input type="number" name="zip_code" id="zip_code"required><br>
+                
+                <label>Phone Number:</label>
+                <input type="number" name="annual_interest" id="annual_interest"required>
+                <span>%</span><br>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Registration Information</legend>
                 <label>Full Name:</label>
                 <input type="text" name="user_name" id="user_name" required><br>
 
@@ -22,7 +51,7 @@
                 <label>Annual Interest:</label>
                 <input type="number" name="annual_interest" id="annual_interest" min="0" max="100" required>
                 <span>%</span><br>
-            </div>
+            </fieldset>
             <div id="buttons">
                 <label>&nbsp;</label>
                 <input type="submit" value="Calculate Discount"><br>

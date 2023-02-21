@@ -3,7 +3,7 @@ body {
     width: 450px;
     margin: 0 auto;
     padding: 1.5em;
-    background: white;
+    background: grad;
     border: 2px solid navy;
     border-radius: 20px;
     box-shadow: 5px 5px;
@@ -20,6 +20,12 @@ h1 {
 }
 h2 {
     color: black;
+}
+fieldset {
+    border: 2px solid black;
+}
+legend {
+    color: green;
 }
 label {
     width: 10em;
