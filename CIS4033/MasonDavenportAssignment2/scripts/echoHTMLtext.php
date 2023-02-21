@@ -14,10 +14,37 @@ function echoHead($jsFile, $cssFile)
 function echoHeader($title)
     {
     echo '
-            <body>
+                <body>
                 <header>
-                <h2>'.$title.'</h2>
-                <img src="../Custom_Images/Logo_de_Enron.svg.png" height="40px" width="40px" /><br>
+                    <h1>Customer Registration</h1>
+                    <nav>
+                        <ul class="menu">
+                            <li>
+                                <button>Home</button>
+                            </li>
+                            
+                            <li>
+                                <button class="current">Account</button>
+                                <ul class="submenu">
+                                    <li>Login</li>
+                                    <li><a href="landingPage.php">Register</a></li>
+                                    <li>Manage</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <form action="mailto:mad2026@utulsa.edu">
+                                    <button type="submit">Email Us</button>
+                                </form>
+                            </li>
+                            
+                            <li>
+                                <button>Logout</button>
+                            </li>
+                        </ul>
+
+                        <br>
+                    </nav>
                 </header>
                 <br>
                 ';
@@ -25,11 +52,12 @@ function echoHeader($title)
 
 function echoFooter()
     {
+        date_default_timezone_set('America/Chicago');
         $currDate = date('l jS \of F Y h:i:s A');
         echo '
                 <br>
                 <footer>
-                    &copy; Mason Davenport, '.$currDate.'. C Copyright by Mason Davenport.  
+                    '.$currDate.' &copy; Copyright by Mason Davenport.  
                 </footer>
             </body>
         </html>

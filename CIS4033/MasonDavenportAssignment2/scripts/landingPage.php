@@ -1,44 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Product Discount Calculator</title>
-    <link rel="stylesheet" type="text/css" href="../styles/CustomerRegistration.css">
-</head>
-echoHead("../clientScripts/customerRegistration.js", "../styles/CustomerRegistration.css")
-<body>
-    <header>
-        <h1>Customer Registration</h1>
-        <nav>
-            <ul class="menu">
-                <li>
-                    <button>Home</button>
-                </li>
-                
-                <li>
-                    <button>Account</button>
-                    <ul class="submenu">
-                        <li><a href="http://www.barbie.com">Login</a></li>
-                        <li>Register</li>
-                        <li>Manage</li>
-                    </ul>
-                </li>
-
-                <li>
-                    <form action="mailto:mad2026@utulsa.edu">
-                        <button type="submit">Email Us</button>
-                    </form>
-                </li>
-                
-                <li>
-                    <button>Logout</button>
-                </li>
-            </ul>
-
-            <br>
-        </nav>
-    </header>
+<?php
+require_once('echoHTMLtext.php');
+// <!DOCTYPE html>
+// <html>
+// <head>
+//     <title>Product Discount Calculator</title>
+//     <link rel="stylesheet" type="text/css" href="../styles/CustomerRegistration.css">
+// </head>
+echoHead("../clientScripts/customerRegistration.js", "../styles/CustomerRegistration.css");
 echoHeader("Customer Registration");
-    <main>
+echo '<main>
         <form action="monthlyPayment.php" onsubmit="return validateProductData();" method="post">
 
             <fieldset> 
@@ -90,6 +60,5 @@ echoHeader("Customer Registration");
                 </div>
             </fieldset>
         </form>
-    </main>
-</body>
-</html>
+    </main>';
+echoFooter();
