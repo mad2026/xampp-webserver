@@ -1,15 +1,47 @@
-body {
+html {
+	background-image: linear-gradient(white, rgb(251, 193, 77));
+
+}body {
     font-family: Arial, Helvetica, sans-serif;
     width: 450px;
     margin: 0 auto;
     padding: 1.5em;
-    background: grad;
+    background: white;
     border: 2px solid navy;
     border-radius: 20px;
     box-shadow: 5px 5px;
 }
 header {
     width: 450px;
+}
+ul {
+    list-style: none;
+}
+
+.menu > li {
+    float: left;
+}
+.menu button {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+.menu button:hover,
+.menu button:focus {
+    outline: 0;
+    text-decoration: underline;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    padding: 10px;
+}
+
+
+.menu button:focus + .submenu,
+.submenu:hover {
+    display: block;
 }
 footer {
     width: 450px;
