@@ -12,17 +12,28 @@ echoHead("../clientScripts/customerRegistration.js", "../styles/CustomerRegistra
             <ul class="menu">
                 <li>
                     <button>Home</button>
+                </li>
+                
+                <li>
+                    <button>Account</button>
                     <ul class="submenu">
-                        <li><a href="http://www.barbie.com">Link</a></li>
-                        <li>Link</li>
-                        <li>Link</li>
-                        <li>Link</li>
-                        <li>Link</li>
+                        <li><a href="http://www.barbie.com">Login</a></li>
+                        <li>Register</li>
+                        <li>Manage</li>
                     </ul>
                 </li>
-                <li><button>More</button></li>
-                <li><button>Info</button></li>
+
+                <li>
+                    <form action="mailto:mad2026@utulsa.edu">
+                        <button type="submit">Email Us</button>
+                    </form>
+                </li>
+                
+                <li>
+                    <button>Logout</button>
+                </li>
             </ul>
+
             <br>
         </nav>
     </header>
