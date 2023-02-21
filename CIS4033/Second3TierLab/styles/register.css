@@ -1,0 +1,96 @@
+/* So the HTML5 structural tags work in older browsers */
+article, aside, figure, footer, header, nav, section {
+	display: block;
+}
+/* the styles for the elements */
+* {
+	margin: 0;
+	padding: 0;
+}
+/* the styles for the html element (the background) */
+html {
+	background-image: -moz-linear-gradient(top, white 0%, #facd8a 100%);
+	background-image: -webkit-linear-gradient(top, white 0%, #facd8a 100%);
+	background-image: -o-linear-gradient(top, white 0%, #facd8a 100%);
+	background-image: linear-gradient(top, white 0%, #facd8a 100%);
+}
+/* the styles for the body */
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 87.5%;
+	width: 600px;
+	background-color: white;
+	margin: 15px auto;
+	padding: 15px 25px;
+	border: 1px solid black;
+	border-radius: 25px;
+	box-shadow: 5px 5px 0 0;
+}
+fieldset {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding-top: .5em;
+}
+legend {
+	color: green;
+	font-weight: bold;
+	font-size: 85%;
+}
+label {
+	float: left;
+	width: 10em;
+	text-align: right;
+}
+input, select {
+	width: 15em;
+	margin-left: 0.5em;
+	margin-bottom: 0.5em;
+}
+input:required, input[required] {
+	border: 3px solid #6F8F89;
+}
+input:valid {
+	border: 1px solid black;
+}
+input:invalid {
+	box-shadow: none;
+}
+br {
+	clear: both;
+}
+#buttons input {
+	width: 10em;
+}
+footer p {
+	font-size: 80%;
+	text-align: right;
+}
+header h1 {
+	color: #ef9c00;
+	text-align: center;
+	text-shadow: 2px 3px 0 black;
+	margin-bottom: .25em;
+}
+a:focus, a:hover {
+	font-style: italic;
+}
+/* the styles for the navigation bar */
+header nav {
+	clear: both;
+}
+header nav ul {
+	list-style: none;
+	padding: 1em 0;       /* padding above and below li elements */
+	background-color: #800000; }
+header nav li {
+	display: inline; }
+header nav a {
+	padding: 1em 2em;
+	text-decoration: none;
+	color: #fffded;
+	font-weight: bold;
+	border-right: 2px solid #fffded; }
+header nav a.current { 
+	color: yellow; }
+#main_form {
+	clear: both;}
