@@ -1,26 +1,19 @@
 <?php
 require_once('echoHTMLtext.php');
-// <!DOCTYPE html>
-// <html>
-// <head>
-//     <title>Product Discount Calculator</title>
-//     <link rel="stylesheet" type="text/css" href="../styles/CustomerRegistration.css">
-// </head>
 echoHead("../clientScripts/customerRegistration.js", "../styles/CustomerRegistration.css");
 echoHeader("Customer Registration");
 echo '<main>
-        <form action="monthlyPayment.php" onsubmit="return validateProductData();" method="post">
-
+        <form action="customerRegistration.php" name="customer_registration" id="customer_registration" onsubmit="return validatePasswordData();" method="post">
             <fieldset> 
                 <legend>Registration Information</legend>
                 <label>E-Mail:</label>
-                <input type="email" name="email" id="email" required><br>
+                <input type="email" name="email" id="email" placeholder="example@example.com" required><br>
 
                 <label>Password:</label>
                 <input type="password" name="password" id="password" pattern="[a-zA-Z0-9]{6,}" placeholder="At least 6 letters or numbers"required><br>
                 
                 <label>Verify Password:</label>
-                <input type="password" name="verify_password" id="verify_password" required><br>
+                <input type="password" name="verify_password" id="verify_password" pattern="[a-zA-Z0-9]{6,}" required><br>
             </fieldset>
             <br>
             <fieldset>
@@ -32,10 +25,10 @@ echo '<main>
                 <input type="text" name="state_code" id="state_code" maxlength="2" placeholder="2-character code" required><br>
 
                 <label>ZIP Code:</label>
-                <input type="number" name="zip_code" id="zip_code" placeholder="5 or 9 digits" pattern="^\d{5}(-\d{4})?$" required><br>
+                <input type="text" name="zip_code" id="zip_code" placeholder="5 or 9 digits" pattern="^\d{5}(-\d{4})?$" placeholder="12345 or 12345-1234" required><br>
                 
                 <label>Phone Number:</label>
-                <input type="number" name="phone_number" id="phone_number" placeholder="999-999-9999" pattern="\d{3}[\-]\d{3}[\-]\d{4}" required>
+                <input type="text" name="phone_number" id="phone_number" placeholder="999-999-9999" pattern="\d{3}[\-]\d{3}[\-]\d{4}" required>
             </fieldset>
             <br>
             <fieldset>
