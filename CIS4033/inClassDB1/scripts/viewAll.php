@@ -17,7 +17,7 @@ try {
     $stmt -> closeCursor();
     //DEBUG print_r($allCustomers); exit(1);
 } catch (Exception $e) {
-    echoError ($e-> getMessage());
+    echoError ($e-> getMessage(), APP_FOLDER_NAME . '/clientScripts/validateForm.js', APP_FOLDER_NAME . '/styles/main.css');
     exit(1);
 }//catch 
 // Echo information
