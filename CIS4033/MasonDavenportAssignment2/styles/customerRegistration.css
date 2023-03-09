@@ -97,6 +97,9 @@ label {
     padding-right: 1em;
     float: left;
 }
+/* input {
+    border: 2px solid darkblue;
+} */
 #data input {
     float: left;
     width: 15em;
