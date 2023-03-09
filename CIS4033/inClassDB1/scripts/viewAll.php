@@ -4,9 +4,9 @@ require_once (APP_ROOT . APP_FOLDER_NAME . '/scripts/echoHTMLText.php');
 require_once (APP_ROOT . APP_FOLDER_NAME . '/scripts/errorDisplay.php');
 require_once (APP_ROOT . APP_FOLDER_NAME . '/scripts/utilities.php');
 
-require_once (APP_ROOT . APP_FOLDER_NAME . '/scripts/db.php');
+//require_once (APP_ROOT . APP_FOLDER_NAME . '/scripts/db.php');
 //require_once (APP_ROOT APP FOLDER_NAME. /scripts/Database.php'); 
-$myDB getDB (DSN1, USER1, PASSWD1);
+$myDB = new PDO(DSN1, USER1, PASSWD1);
 //$myDataBase= new Database (DSN1, USER1, PASSWD1); 
 //$myDB = $myDataBase->getDB ();
 $selectStmt = "SELECT C.custId, C.custName, C.custEmail FROM customers AS C";

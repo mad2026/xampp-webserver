@@ -1,11 +1,11 @@
 <?php
-function echoHead($jsFile, $cssFile)
+function echoHead($jsFile, $cssFile, $title)
     {
     echo '
     <!DOCTYPE html>
     <html>
         <head>
-            <title>Register</title>
+            <title>'.$title.'</title>
             <link rel="stylesheet" type="text/css" href="'.$cssFile.'">
             <script src="'.$jsFile.'"></script>
         </head>
