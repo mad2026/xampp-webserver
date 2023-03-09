@@ -1,0 +1,117 @@
+html {
+	background-image: linear-gradient(white, rgb(251, 193, 77));
+    height: 100%;
+
+}body {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 550px ;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 1.5em;
+    background: white;
+    border: 2px solid navy;
+    border-radius: 20px;
+    box-shadow: 5px 5px;
+}
+header {
+    width: auto;
+    align-self: center;
+}
+header nav {
+    clear: both;
+}
+header nav button.current { 
+	color: yellow; }
+ul {
+    list-style: none;
+    background-color: maroon;
+    padding: 0em 0; 
+    display: flex; /* added this */
+}
+.menu{
+    width: auto;
+}
+.menu > li {
+    display: inline-block; /* changed to inline-block */
+}
+
+
+.menu button {
+    border: 0;
+    color: white;
+    text-decoration: none;
+    background: transparent;
+    cursor: pointer;
+    border-right: 2px solid white; 
+    padding: 1em 2em;
+}
+.menu button:hover,
+.menu button:focus {
+    outline: 0;
+    color: goldenrod;
+    text-decoration: underline;
+}
+/* .menu > li:hover .submenu {
+    display: block;
+    } */
+
+.submenu {
+    display: none;
+    position: absolute;
+    padding: 10px;
+    background-color: orange;
+}
+
+
+.menu button:focus + .submenu,
+.submenu:hover {
+    display: block;
+}
+footer {
+    width: auto;
+    font-size: small;
+    text-align: right;
+}
+
+h1 {
+    color: orange;
+	text-align: center;
+	text-shadow: 3px 3px 0 black;
+	margin-bottom: .2em;
+}
+h2 {
+    color: black;
+}
+h3 {
+    color: red;
+}
+fieldset {
+    border: 2px solid black;
+}
+legend {
+    color: green;
+}
+label {
+    width: 10em;
+    padding-right: 1em;
+    float: left;
+}
+/* input {
+    border: 2px solid darkblue;
+} */
+#data input {
+    float: left;
+    width: 15em;
+    margin-bottom: .5em;
+}
+#data span {
+    padding-left: .25em;
+}
+#button input {
+    float: left;
+    margin-bottom: .5em;
+}
+br {
+    clear: left;
+}

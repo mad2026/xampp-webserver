@@ -17,7 +17,7 @@ try {
     $stmt -> closeCursor();
     //DEBUG print_r($allCustomers); exit(1);
 } catch (Exception $e) {
-    echoError ($e->getMessage());
+    echoError ($e-> getMessage());
     exit(1);
 }//catch 
 // Echo information
