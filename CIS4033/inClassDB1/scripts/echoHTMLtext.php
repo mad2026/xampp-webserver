@@ -1,65 +1,55 @@
 <?php
-function echoHead($jsFile, $cssFile, $title)
-    {
+//WEB_ROOT.APP_FOLDER_NAME.
+
+function echoHead($jsFile, $cssFile, $title){
+    require_once('../app_config.php');
     echo '
-    <!DOCTYPE html>
-    <html>
-        <head>
+        <!DOCTYPE html>
+        <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+            <head>
             <title>'.$title.'</title>
-            <link rel="stylesheet" type="text/css" href="'.$cssFile.'">
-            <script src="'.$jsFile.'"></script>
-        </head>
-        ';
-    }//echoHead
-function echoHeader($title)
-    {
-    echo '
-                <body>
-                <header>
-                    <h1>Customer Registration</h1>
-                    <nav>
-                        <ul class="menu">
-                            <li>
-                                <button>Home</button>
-                            </li>
-                            
-                            <li>
-                                <button class="current">Account</button>
-                                <ul class="submenu">
-                                    <li>Login</li>
-                                    <li><a href="landingPage.php">Register</a></li>
-                                    <li>Manage</li>
-                                </ul>
-                            </li>
+            <link rel="stylesheet" type="text/css" href="'. $cssFile .'">
+            <script src="'. $jsFile .'"></script>
+            </head>
 
-                            <li>
-                                <form action="mailto:mad2026@utulsa.edu">
-                                    <button type="submit">Email Us</button>
-                                </form>
-                            </li>
-                            
-                            <li>
-                                <button>Logout</button>
-                            </li>
-                        </ul>
-
-                        <br>
-                    </nav>
-                </header>
-                <br>
-                ';
-    }//echoHeader
-
-function echoFooter()
-    {
-        date_default_timezone_set('America/Chicago');
-        $currDate = date('l jS \of F Y h:i:s A');
+    ';
+}
+function echoHeader($caption){
+    require_once('../app_config.php');
+    echoMenu();
         echo '
-                <br>
-                <footer>
-                    '.$currDate.' &copy; Copyright by Mason Davenport.  
+            <body>
+                <header class="center">
+                          <h1>'.$caption.'</h1>
+                </header>
+
+           
+
+                <main>
+        ';//end echo
+    }
+
+    function echoFooter(){
+        //$currYear = date("Y");
+        require_once('../app_config.php');
+        echo '
+            </main>
+                <footer class="center">
                 </footer>
             </body>
-        </html>
-        ';
-    }//echoFooter
+            </html>
+            <br />
+        ';//end echo
+
+
+    }
+function echoMenu(){
+    echo '
+    <div class="topnav">
+        <a class="active" href="'. WEB_ROOT.APP_FOLDER_NAME.'"/scripts/landingPage.php">Register</a>
+        <a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/viewAll.php">View All</a>
+    </div>
+
+';
+}
+?>

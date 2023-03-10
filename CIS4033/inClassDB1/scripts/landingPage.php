@@ -3,7 +3,7 @@
 require_once("../app_config.php");
 require_once(APP_ROOT.APP_FOLDER_NAME."/scripts/echoHTMLtext.php");
 //echo date('Y');
-echoHead(APP_ROOT.APP_FOLDER_NAME."/clientScripts/validateForm.js", APP_ROOT.APP_FOLDER_NAME."/styles/customerRegistration.css", "Register");
+echoHead(APP_FOLDER_NAME."/clientScripts/validateForm.js", APP_FOLDER_NAME."/styles/CustomerRegistration.css", "Register");
 echoHeader("Register Yourself");
 echo '
 
