@@ -71,6 +71,20 @@ body {
 .read .create-contact:hover {
   	background-color: #32a367;
 }
+
+.read .create-customer {
+	display: inline-block;
+	text-decoration: none;
+	background-color: #38b673;
+	font-weight: bold;
+	font-size: 14px;
+	color: #FFFFFF;
+	padding: 10px 15px;
+	margin: 15px 0;
+}
+.read .create-customer:hover {
+	background-color: #32a367;
+}
 .read .pagination {
   	display: flex;
   	justify-content: flex-end;

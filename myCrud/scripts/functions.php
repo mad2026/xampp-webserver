@@ -26,6 +26,7 @@ function template_header($title) {
     		      <h1>Customers and Contacts</h1>
                   <a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/landingPage.php"><i class="fas fa-home"></i>Home</a>
     		      <a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/contacts_table/contacts_read.php"><i class="fas fa-address-book"></i>Contacts</a>
+				  <a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/customers_table/customers_read.php"><i class="fas fa-address-book"></i>Customers</a>
     	       </div>
             </nav>
 ';
