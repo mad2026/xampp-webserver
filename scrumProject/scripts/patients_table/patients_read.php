@@ -21,7 +21,7 @@ $num_patients = $pdo->query('SELECT COUNT(*) FROM patient_information')->fetchCo
 
 <div class="content read">
 	<h2>Read Patients</h2>
-	<a href="patients_create.php" class="create-patient">Create Patient</a>
+	<a href="patients_create.php" class="create-contact">Create Patient</a>
 	<table>
         <thead>
             <tr>
