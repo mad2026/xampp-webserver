@@ -11,7 +11,7 @@
 
 <div class="content">
 	<h2>Home</h2>
-	<p>Welcome to the home page! Code here has been modified from codeshack.io, originally written by David Adams and made available on the Web</p>
+	<p>I was able to complete the crud for classrooms, courses, professors, and students. and the read for sections. I was part way through the sections create</p>
 </div>
 
 <?=template_footer()?>

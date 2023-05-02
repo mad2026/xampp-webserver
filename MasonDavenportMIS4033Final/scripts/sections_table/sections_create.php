@@ -2,20 +2,19 @@
 @include_once ('../../app_config.php');
 @include_once (APP_ROOT.APP_FOLDER_NAME . '/scripts/functions.php');
 $pdo = pdo_connect_mysql();
+
+
 $msg = '';
 // Check if POST data is not empty
 
-$stmt = $pdo->prepare('SELECT patient_id, CONCAT(first_name, " ", last_name) AS full_name FROM patient_information');
+$stmt = $pdo->prepare('SELECT c_id, c_name AS c_name FROM courses');
 $stmt->execute();
-$patients = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$stmt = $pdo->prepare('SELECT visit_id FROM doctor_visit_fev1');
+$stmt = $pdo->prepare('SELECT cl_id FROM classrooms');
 $stmt->execute();
-$visits = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$classrooms = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$stmt = $pdo->prepare('SELECT medication_id, medication_name FROM medications');
-$stmt->execute();
-$medications = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 
@@ -23,20 +22,31 @@ if (!empty($_POST)) {
     // Post data not empty insert a new record
     // Set-up the variables that are going to be inserted, //we must check if the POST variables exist if not we //can default them to blank
     // Check if POST variable "name" exists, if not default //the value to blank, basically the same for all //variables
-/* 	print($_POST['patient_id']);
+    /* 	print($_POST['patient_id']);
 	print($_POST['visit_id']);
 	print($_POST['medication_id']);
 	print($_POST['medication_type']);
 	exit($_POST['notes_dosage']); */
 	
-    $patient_id = isset($_POST['patient_id']) ? $_POST['patient_id'] : NULL;
-    $visit_id = isset($_POST['visit_id']) ? $_POST['visit_id'] : NULL;	
-    $medication_id = isset($_POST['medication_id']) ? $_POST['medication_id'] : NULL;
-    $medication_type = isset($_POST['medication_type']) ? $_POST['medication_type'] : NULL;
-    $notes_dosage = isset($_POST['notes_dosage']) ? $_POST['notes_dosage'] : NULL;
+    /*
+                      `c_id` varchar(8) NOT NULL,
+                      `s_id` varchar(11) NOT NULL,
+                      `time_held` time DEFAULT NULL,
+                      `week_days_held` varchar(6) DEFAULT NULL,
+                      `date_began` date DEFAULT NULL,
+                      `date_ended` date DEFAULT NULL,
+                      `cl_id` varchar(10) DEFAULT NULL,
+                    */
+    $c_id = isset($_POST['c_id']) ? $_POST['c_id'] : NULL;
+    $s_id = isset($_POST['s_id']) ? $_POST['s_id'] : NULL;	
+    $time_held = isset($_POST['time_held']) ? $_POST['time_held'] : NULL;
+    $week_days_held = isset($_POST['week_days_held']) ? $_POST['week_days_held'] : NULL;
+    $date_began = isset($_POST['date_began']) ? $_POST['date_began'] : NULL;
+    $date_ended = isset($_POST['date_ended']) ? $_POST['date_ended'] : NULL;
+    $cl_id = isset($_POST['cl_id']) ? $_POST['cl_id'] : NULL;
     // Insert new record into the contacts table
-    $stmt = $pdo->prepare('INSERT INTO medication_prescribed VALUES (?, ?, ?, ?, ?)');
-    $stmt->execute([$patient_id, $visit_id, $medication_id, $medication_type, $notes_dosage]);
+    $stmt = $pdo->prepare('INSERT INTO sections VALUES (?, ?, ?, ?, ?, ?, ?)');
+    $stmt->execute([$c_id, $s_id, $time_held, $week_days_held, $date_began, $date_ended, $cl_id]);
     // Output message
     $msg = 'Created Successfully!';
 }
@@ -44,8 +54,8 @@ if (!empty($_POST)) {
 <?=template_header('Create')?>
     
 <div class="content update">
-	<h2>Create Contact</h2>
-    <form action="medications_prescribed_create.php" method="post">
+	<h2>Create Section</h2>
+    <form action="sections_create.php" method="post">
         
 		<div class="form-group">
 			<label for="patient_id">Patient Name</label>
@@ -87,7 +97,7 @@ if (!empty($_POST)) {
 
         
         <input type="submit" value="Create">
-         <a class="back-btn" href=".\medications_prescribed_read.php">Back</a>
+         <a class="back-btn" href=".\sections_read.php">Back</a>
     </form>
     <?php if ($msg): ?>
     <p><?=$msg?></p>
