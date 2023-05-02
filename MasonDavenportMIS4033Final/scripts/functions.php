@@ -33,19 +33,13 @@ function template_header($title) {
 								<label id="dropdown">
 								  <button id="drop-btn"><i class="fas fa-bars"></i> Menu</button>
 								  <div id="dropdown-content">
-									<a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/patients_table/patients_read.php"><i class="fas fa-users"></i> Patients</a>
-									
-									<a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/doctor_visit_fev1_table/doctor_visit_fev1_read.php"><i class="fas fa-notes-medical"></i></i> FEV1 Exams</a>
-									
-									<a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/medications_prescribed_table/medications_prescribed_read.php"><i class="fas fa-syringe"></i> Prescriptions</a>
-									
 									<a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/classrooms_table/classrooms_read.php"><i class="fas fa-vials"></i> Classroom List</a>
 									
 									<a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/courses_table/courses_read.php"><i class="fas fa-vials"></i> Course List</a>
 
 									<a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/professors_table/professors_read.php"><i class="fas fa-vials"></i> Professor List</a>
 									
-									<a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/acme_user_accounts_table/acme_user_accounts_read.php"><i class="fas fa-user-md"></i> Users</a>
+									<a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/students_table/students_read.php"><i class="fas fa-user-md"></i> Student List</a>
 								  </div>
 								</label>
 							</div>
