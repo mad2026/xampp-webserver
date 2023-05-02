@@ -41,7 +41,9 @@ function template_header($title) {
 									
 									<a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/classrooms_table/classrooms_read.php"><i class="fas fa-vials"></i> Classroom List</a>
 									
-									<a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/courses_table/courses_read.php"><i class="fas fa-vials"></i> Courses List</a>
+									<a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/courses_table/courses_read.php"><i class="fas fa-vials"></i> Course List</a>
+
+									<a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/professors_table/professors_read.php"><i class="fas fa-vials"></i> Professor List</a>
 									
 									<a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/acme_user_accounts_table/acme_user_accounts_read.php"><i class="fas fa-user-md"></i> Users</a>
 								  </div>

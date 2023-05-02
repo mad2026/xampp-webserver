@@ -7,39 +7,43 @@ $pdo = pdo_connect_mysql();
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
 // Number of records to show on each page
 $records_per_page = 5;
-// Prepare the SQL statement and get records from our courses table, LIMIT will determine the page
-$stmt = $pdo->prepare('SELECT * FROM courses ORDER BY c_id LIMIT :current_page, :record_per_page');
+// Prepare the SQL statement and get records from our professors table, LIMIT will determine the page
+$stmt = $pdo->prepare('SELECT * FROM professors ORDER BY f_id LIMIT :current_page, :record_per_page');
 $stmt->bindValue(':current_page', ($page-1)*$records_per_page, PDO::PARAM_INT);
 $stmt->bindValue(':record_per_page', $records_per_page, PDO::PARAM_INT);
 $stmt->execute();
 // Fetch the records so we can display them in our template.
-$courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
-// Get the total number of courses, this is so we can determine whether there should be a next and previous button
-$num_courses = $pdo->query('SELECT COUNT(*) FROM courses')->fetchColumn();
+$professors = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// Get the total number of professors, this is so we can determine whether there should be a next and previous button
+$num_professors = $pdo->query('SELECT COUNT(*) FROM professors')->fetchColumn();
 ?>
 <?=template_header('Read')?>
 
 <div class="content read">
-	<h2>Read Courses</h2>
-	<a href="courses_create.php" class="create-contact">Create Course</a>
+	<h2>Read Professors</h2>
+	<a href="professors_create.php" class="create-contact">Create Professor</a>
 	<table>
         <thead>
             <tr>
-                <td>Class Code</td>
-                <td>Course Name</td>
-                <td>Number of Credits</td>                
+                <td>Facuilty ID</td>
+                <td>Name</td>
+                <td>Address</td>                
+                <td>Specialty</td>                
+                <td>Highest Degree</td>                
                 <td></td>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($courses as $course): ?>
+            <?php foreach ($professors as $professor): ?>
             <tr>
-                <td><?=$course['c_id']?></td>
-                <td><?=$course['c_name']?></td>
-                <td><?=$course['num_credits']?></td>
+                <td><?=$professor['f_id']?></td>
+                <td><?=$professor['f_name']?></td>
+                <td><?=$professor['f_address']?></td>
+                <td><?=$professor['f_specialty']?></td>
+                <td><?=$professor['highest_degree']?></td>
                 <td class="actions">
-                    <a href="courses_update.php?id=<?=$course['c_id']?>" class="edit"><i class="fas fa-pen fa-xs"></i></a>
-                    <a href="courses_delete.php?id=<?=$course['c_id']?>" class="trash"><i class="fas fa-trash fa-xs"></i></a>
+                    <a href="professors_update.php?id=<?=$professor['f_id']?>" class="edit"><i class="fas fa-pen fa-xs"></i></a>
+                    <a href="professors_delete.php?id=<?=$professor['f_id']?>" class="trash"><i class="fas fa-trash fa-xs"></i></a>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -47,10 +51,10 @@ $num_courses = $pdo->query('SELECT COUNT(*) FROM courses')->fetchColumn();
     </table>
 	<div class="pagination">
 		<?php if ($page > 1): ?>
-		<a href="courses_read.php?page=<?=$page-1?>"><i class="fas fa-angle-double-left fa-sm"></i></a>
+		<a href="professors_read.php?page=<?=$page-1?>"><i class="fas fa-angle-double-left fa-sm"></i></a>
 		<?php endif; ?>
-		<?php if ($page*$records_per_page < $num_courses): ?>
-		<a href="courses_read.php?page=<?=$page+1?>"><i class="fas fa-angle-double-right fa-sm"></i></a>
+		<?php if ($page*$records_per_page < $num_professors): ?>
+		<a href="professors_read.php?page=<?=$page+1?>"><i class="fas fa-angle-double-right fa-sm"></i></a>
 		<?php endif; ?>
 	</div>
 	<a class="back-btn" href="..\landingPage.php">Back</a>
