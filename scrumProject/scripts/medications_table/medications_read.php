@@ -37,7 +37,7 @@ $num_medications = $pdo->query('SELECT COUNT(*) FROM medications')->fetchColumn(
                 <td><?=$medication['medication_name']?></td>
                 <td class="actions">
                     <a href="medications_update.php?id=<?=$medication['medication_id']?>" class="edit"><i class="fas fa-pen fa-xs"></i></a>
-                    <!--<a href="medications_delete.php?id=<?=$medication['medication_id']?>" class="trash"><i class="fas fa-trash fa-xs"></i></a> -->
+                    <a href="medications_delete.php?id=<?=$medication['medication_id']?>" class="trash"><i class="fas fa-trash fa-xs"></i></a>
                 </td>
             </tr>
             <?php endforeach; ?>

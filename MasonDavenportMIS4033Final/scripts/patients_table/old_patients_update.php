@@ -36,47 +36,35 @@ if (isset($_GET['patient_id'])) {
 <div class="content update">
 	<h2>Update Patient #<?=$patient['patient_id']?></h2>
     <form action="patients_update.php?patient_id=<?=$patient['patient_id']?>" method="post">
-		<label for="patient_id">Patient ID</label>
-		<label></label>
-	
-
+    <label for="patient_id">Patient ID</label>
         <input type="text" name="patient_id" placeholder="26" value="<?=$patient['patient_id']?>" required id="patient_id">
-		<label></label>
-		
         <label for="first_name">First Name</label>
         <label for="last_name">Last Name</label>
-		
         <input type="text" name="first_name" placeholder="John" value="<?=$patient['first_name']?>" required id="first_name">
         <input type="text" name="last_name" placeholder="Doe" value="<?=$patient['last_name']?>"required id="last_name">
-		
         <label for="birth_date">Date of Birth</label>
-		<label for="gender">Gender</label>
-		
         <input type="date" name="birth_date" value="<?=$patient['birth_date']?>" required id="birth_date">
+        <label for=""></label>
+        <label for=""></label>
+        <label for="gender">Gender</label>
             <select name="gender" required id="gender">
                 <option value='<?php echo $patient['gender']?>' hidden selected='selected'><?php echo $patient['gender']?></option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
-            </select>
-			
+            </select> 
+        <label for=""></label>
         <label for="genetics">Genetics</label>
-        <label for="diabetes">Diabetes</label>		
-		
         <input type="text" name="genetics" placeholder="Please enter relevant genetic information here" maxlength=500 value="<?=$patient['genetics']?>" id="genetics">
-
+        <label for="diabetes">Diabetes</label>
         <select name="diabetes" required id="diabetes">
             <option value='<?php echo $patient['diabetes']?>' hidden selected='selected'><?php echo $patient['diabetes']?></option>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
         </select>
-
+        <label for=""></label>
         <label for="other_conditions">Other Conditions</label>
-		<label></label>
-		
         <input type="text" name="other_conditions" placeholder="Please list any other conditions here" maxlength=500 value="<?=$patient['other_conditions']?>" id="other_conditions">
-		<label></label>
-		
         <input type="submit" value="Update">
         <a class="back-btn" href=".\patients_read.php">Back</a>
     </form>

@@ -39,7 +39,7 @@ function template_header($title) {
 									
 									<a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/medications_prescribed_table/medications_prescribed_read.php"><i class="fas fa-syringe"></i> Prescriptions</a>
 									
-									<a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/medications_table/medications_read.php"><i class="fas fa-vials"></i> Medications List</a>
+									<a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/classrooms_table/classrooms_read.php"><i class="fas fa-vials"></i> Classroom List</a>
 									
 									<a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/acme_user_accounts_table/acme_user_accounts_read.php"><i class="fas fa-user-md"></i> Users</a>
 								  </div>

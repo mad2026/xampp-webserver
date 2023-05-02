@@ -29,47 +29,34 @@ if (!empty($_POST)) {
 	<h2>Create Patient</h2>
     <form action="patients_create.php" method="post">
         <label for="patient_id">Patient ID</label>
-		<label></label>
-
         <input type="text" name="patient_id" placeholder="26" value="auto" required id="patient_id">
-		<label></label>
-
         <label for="first_name">First Name</label>
         <label for="last_name">Last Name</label>
-		
         <input type="text" name="first_name" placeholder="John" required id="first_name">
         <input type="text" name="last_name" placeholder="Doe" required id="last_name">
-			
         <label for="birth_date">Date of Birth</label>
-        <label for="gender">Gender</label>
-		
         <input type="date" name="birth_date"  required id="birth_date">
+        <label for=""></label>
+        <label for=""></label>
+        <label for="gender">Gender</label>
             <select name="gender" required id="gender">
                 <option value="" disabled hidden selected>Specify your gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
             </select>
-		
         <label for="genetics">Genetics</label>
-        <label for="diabetes">Diabetes</label>
-		
         <input type="text" name="genetics" placeholder="Please enter relevant genetic information here" maxlength=500 id="genetics">
+        <label for="diabetes">Diabetes</label>
         <select name="diabetes" required id="diabetes">
             <option value="" disabled hidden selected>Select Yes or No</option>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
         </select>
-		
-		
+        <label for=""></label>
         <label for="other_conditions">Other Conditions</label>
-		<label></label>
-		
         <input type="text" name="other_conditions" placeholder="Please list any other conditions here" maxlength=500 id="other_conditions">
-		
-		<label></label>
         <input type="submit" value="Create">
-		<a class="back-btn" href=".\patients_read.php">Back</a>
     </form>
     <?php if ($msg): ?>
     <p><?=$msg?></p>
