@@ -6,44 +6,42 @@ $pdo = pdo_connect_mysql();
 // Get the page via GET request (URL param: page), if non exists default the page to 1
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
 // Number of records to show on each page
+
 $records_per_page = 5;
-// Prepare the SQL statement and get records from our professors table, LIMIT will determine the page
-$stmt = $pdo->prepare('SELECT * FROM professors ORDER BY f_id LIMIT :current_page, :record_per_page');
+// Prepare the SQL statement and get records from our students table, LIMIT will determine the page
+$stmt = $pdo->prepare('SELECT * FROM students ORDER BY st_id LIMIT :current_page, :record_per_page');
 $stmt->bindValue(':current_page', ($page-1)*$records_per_page, PDO::PARAM_INT);
 $stmt->bindValue(':record_per_page', $records_per_page, PDO::PARAM_INT);
 $stmt->execute();
 // Fetch the records so we can display them in our template.
-$professors = $stmt->fetchAll(PDO::FETCH_ASSOC);
-// Get the total number of professors, this is so we can determine whether there should be a next and previous button
-$num_professors = $pdo->query('SELECT COUNT(*) FROM professors')->fetchColumn();
+$students = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// Get the total number of students, this is so we can determine whether there should be a next and previous button
+$num_students = $pdo->query('SELECT COUNT(*) FROM students')->fetchColumn();
 ?>
 <?=template_header('Read')?>
-
 <div class="content read">
-	<h2>Read Professors</h2>
-	<a href="professors_create.php" class="create-contact">Create Professor</a>
+    <h2>Read Students</h2>
+	<a href="students_create.php" class="create-contact">Create Student</a>
 	<table>
         <thead>
             <tr>
-                <td>Facuilty ID</td>
+                <td>Student ID</td>
                 <td>Name</td>
-                <td>Address</td>                
-                <td>Specialty</td>                
-                <td>Highest Degree</td>                
+                <td>Gender</td>                
+                <td>GPA</td>                
                 <td></td>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($professors as $professor): ?>
-            <tr>
-                <td><?=$professor['f_id']?></td>
-                <td><?=$professor['f_name']?></td>
-                <td><?=$professor['f_address']?></td>
-                <td><?=$professor['f_specialty']?></td>
-                <td><?=$professor['highest_degree']?></td>
+            <?php foreach ($students as $student): ?>
+                <tr>
+                <td><?=$student['st_id']?></td>
+                <td><?=$student['st_name']?></td>
+                <td><?=$student['gender']?></td>
+                <td><?=$student['st_gpa']?></td>
                 <td class="actions">
-                    <a href="professors_update.php?id=<?=$professor['f_id']?>" class="edit"><i class="fas fa-pen fa-xs"></i></a>
-                    <a href="professors_delete.php?id=<?=$professor['f_id']?>" class="trash"><i class="fas fa-trash fa-xs"></i></a>
+                    <a href="students_update.php?id=<?=$student['st_id']?>" class="edit"><i class="fas fa-pen fa-xs"></i></a>
+                    <a href="students_delete.php?id=<?=$student['st_id']?>" class="trash"><i class="fas fa-trash fa-xs"></i></a>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -51,10 +49,10 @@ $num_professors = $pdo->query('SELECT COUNT(*) FROM professors')->fetchColumn();
     </table>
 	<div class="pagination">
 		<?php if ($page > 1): ?>
-		<a href="professors_read.php?page=<?=$page-1?>"><i class="fas fa-angle-double-left fa-sm"></i></a>
+		<a href="students_read.php?page=<?=$page-1?>"><i class="fas fa-angle-double-left fa-sm"></i></a>
 		<?php endif; ?>
-		<?php if ($page*$records_per_page < $num_professors): ?>
-		<a href="professors_read.php?page=<?=$page+1?>"><i class="fas fa-angle-double-right fa-sm"></i></a>
+		<?php if ($page*$records_per_page < $num_students): ?>
+		<a href="students_read.php?page=<?=$page+1?>"><i class="fas fa-angle-double-right fa-sm"></i></a>
 		<?php endif; ?>
 	</div>
 	<a class="back-btn" href="..\landingPage.php">Back</a>
