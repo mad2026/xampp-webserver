@@ -7,14 +7,14 @@ $msg = '';
 if (!empty($_POST)) {
     // Post data not empty insert a new record
     // Set-up the variables that are going to be inserted, //we must check if the POST variables exist if not we //can default them to blank
-    $cl_id = isset($_POST['cl_id']) && !empty($_POST['cl_id']) && $_POST['cl_id'] != 'auto' ? $_POST['cl_id'] : NULL;
+    $c_id = isset($_POST['c_id']) && !empty($_POST['c_id']) && $_POST['c_id'] != 'auto' ? $_POST['c_id'] : NULL;
     // Check if POST variable "name" exists, if not default //the value to blank, basically the same for all //variables
-    $capacity = isset($_POST['capacity']) ? $_POST['capacity'] : '';
-    $location = isset($_POST['location']) ? $_POST['location'] : '';
+    $c_name = isset($_POST['c_name']) ? $_POST['c_name'] : '';
+    $num_credits = isset($_POST['num_credits']) ? $_POST['num_credits'] : '';
 
-    // Insert new record into the classrooms table
-    $stmt = $pdo->prepare('INSERT INTO classrooms (cl_id, capacity, location) VALUES (?, ?, ?)');
-    $stmt->execute([$cl_id, $capacity, $location]);
+    // Insert new record into the courses table
+    $stmt = $pdo->prepare('INSERT INTO courses (c_id, c_name, num_credits) VALUES (?, ?, ?)');
+    $stmt->execute([$c_id, $c_name, $num_credits]);
     // Output message
     $msg = 'Created Successfully!';
 }
@@ -22,16 +22,16 @@ if (!empty($_POST)) {
 <?=template_header('Create')?>
 
 <div class="content update">
-	<h2>Create Classroom</h2>
-    <form action="classrooms_create.php" method="post">
-        <label for="cl_id">Room</label>
-        <input type="text" name="cl_id" placeholder="HELM000" id="cl_id">
-        <label for="capacity">Capacity</label>
-        <input type="number" name="capacity" placeholder="30" id="capacity">
-        <label for="location">Building</label>
-        <input type="text" name="location" placeholder="Helmrich" id="location">
+	<h2>Create Course</h2>
+    <form action="courses_create.php" method="post">
+        <label for="c_id">Class Code</label>
+        <input type="text" name="c_id" placeholder="CIS4033" id="c_id">
+        <label for="c_name">Course Name</label>
+        <input type="text" name="c_name" placeholder="Bus Program Concept III" id="c_name">
+        <label for="num_credits">Number of Credits</label>
+        <input type="text" name="num_credits" placeholder="3" id="num_credits">
         <input type="submit" value="Create">
-		<a class="back-btn" href=".\classrooms_read.php">Back</a>
+		<a class="back-btn" href=".\courses_read.php">Back</a>
     </form>
     <?php if ($msg): ?>
     <p><?=$msg?></p>
