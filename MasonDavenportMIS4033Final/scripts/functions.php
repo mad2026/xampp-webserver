@@ -39,6 +39,8 @@ function template_header($title) {
 
 									<a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/professors_table/professors_read.php"><i class="fas fa-vials"></i> Professor List</a>
 									
+									<a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/sections_table/sections_read.php"><i class="fas fa-vials"></i> Section List</a>
+
 									<a href="'.WEB_ROOT.APP_FOLDER_NAME.'/scripts/students_table/students_read.php"><i class="fas fa-user-md"></i> Student List</a>
 								  </div>
 								</label>
