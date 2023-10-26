@@ -17,40 +17,40 @@ $stmt->execute();
 $sections = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // Get the total number of doctor_visit_fev1, this is so we can determine whether there should be a next and previous button
 $num_sections = $pdo->query('SELECT COUNT(*) FROM sections')->fetchColumn();
+        
+    ?>
+    <?=template_header('Read')?>
 
-?>
-<?=template_header('Read')?>
-
-<div class="content read">
-    <h2>Course Sections</h2>
-	<a href="sections_create.php" class="create-contact">Create a Section</a>
-	<table>
+<div class      ="content read">
+        <h2>Course Sections</h2>
+        <a href="sections_create.php" class="create-contact">Create a Section</a>
+        <table>
         <thead>
-            <tr>
-                <td>Course ID</td>
-				<td>Section ID</td>	
-                <td>Time of Class</td>
-                <td>Days of Week</td>
-                <td>Date Began</td>
-                <td>Date Ended</td>
-                <td>Classroom ID</td>
-                <td></td>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($sections as $sections): ?>
+                    <tr>
+                            <td>Course ID</td>
+                    <td>Section ID</td>	
+                    <td>Time of Class</td>
+                     <td>Days of Week</td>
+                    <td>Date Began</td>
+                    <td>Date Ended</td>
+                    <td>Classroom ID</td>
+                        <td></td>
+                    </tr>
+               </thead>
+            <tbody>
+               <?php foreach ($sections as $sections): ?>
                 <tr>
-                
+
                 <td><?=$sections['c_id']?></td>	
-				<td><?=$sections['s_id']?></td>					
+			        	<td><?=$sections['s_id']?></td>					
                 <td><?=$sections['time_held']?></td>            
-                <td><?=$sections['week_days_held']?></td>
+                         <td><?=$sections['week_days_held']?></td>
                 <td><?=$sections['date_began']?></td>
-                <td><?=$sections['date_ended']?></td>
+                 <td><?=$sections['date_ended']?></td>
                 <td><?=$sections['cl_id']?></td>
                 
                 <td class="actions">
-                    <a href="sections_update.php?id=<?=$sections['s_id']?>+<?=$sections['c_id']?>+<?=$sections['cl_id']?>" class="edit"><i class="fas fa-pen fa-xs"></i></a>
+                         <a href="sections_update.php?id=<?=$sections['s_id']?>+<?=$sections['c_id']?>+<?=$sections['cl_id']?>" class="edit"><i class="fas fa-pen fa-xs"></i></a>
 					
                     <a href="sections_delete.php?s_id=<?=$sections['s_id']?>" class="trash"><i class="fas fa-trash fa-xs"></i></a>
                 </td>
